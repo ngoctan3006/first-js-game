@@ -36,7 +36,10 @@ class Layer {
     this.x = Math.floor(this.x - this.speed);
     this.x2 = Math.floor(this.x2 - this.speed);
   }
-  draw() {}
+  draw() {
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    ctx.drawImage(this.image, this.x2, this.y, this.width, this.height);
+  }
 }
 
 function animate() {
