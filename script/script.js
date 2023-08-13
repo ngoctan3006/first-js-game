@@ -1,3 +1,9 @@
+let playerState = 'idle';
+const dropdown = document.getElementById('animations');
+dropdown.addEventListener('change', function (e) {
+  playerState = e.target.value;
+});
+
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 const CANVAS_WIDTH = (canvas.width = 600);
@@ -66,9 +72,9 @@ animationStates.forEach((state, index) => {
 
 function animate() {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-  let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations['run'].loc.length;
+  let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations[playerState].loc.length;
   let frameX = spriteWidth * position;
-  let frameY = spriteAnimations['run'].loc[position].y;
+  let frameY = spriteAnimations[playerState].loc[position].y;
   ctx.drawImage(
     playerImage,
     frameX,
