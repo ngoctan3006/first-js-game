@@ -19,13 +19,14 @@ class Enemy {
     this.y = Math.random() * canvas.height;
     this.width = 100;
     this.height = 100;
+    this.speed = Math.random() * 4 - 2;
   }
   update() {
-    this.x++;
-    this.y++;
+    this.x += this.speed;
+    this.y += this.speed;
   }
   draw() {
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.strokeRect(this.x, this.y, this.width, this.height);
   }
 }
 
