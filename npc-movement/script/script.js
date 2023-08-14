@@ -6,12 +6,8 @@ const CANVAS_HEIGHT = (canvas.height = 1000);
 const numberOfEnemies = 100;
 const enemiesArray = [];
 
-const enemy1 = {
-  x: 10,
-  y: 50,
-  width: 200,
-  height: 200,
-};
+const enemyImage = new Image();
+enemyImage.src = 'images/enemy1.png';
 
 class Enemy {
   constructor() {
@@ -20,13 +16,25 @@ class Enemy {
     this.width = 100;
     this.height = 100;
     this.speed = Math.random() * 4 - 2;
+    this.spriteWidth = 293;
+    this.spriteHeight = 155;
   }
   update() {
     this.x += this.speed;
     this.y += this.speed;
   }
   draw() {
-    ctx.strokeRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(
+      enemyImage,
+      0,
+      0,
+      this.spriteWidth,
+      this.spriteHeight,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
   }
 }
 
